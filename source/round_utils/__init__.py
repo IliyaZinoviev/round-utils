@@ -1,8 +1,8 @@
 """Package for rounding functions"""
 
-from .round import round_up, round_down
+from .round import ceil, floor
 
 __all__ = [
-    'round_up',
-    'round_down'
+    'ceil',
+    'floor'
 ]

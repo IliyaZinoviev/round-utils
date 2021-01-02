@@ -1,6 +1,6 @@
 import unittest
 
-from round_utils.round import round_down, round_up
+from round_utils.round import floor, ceil
 
 
 class TestRound(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestRound(unittest.TestCase):
 
         ]
         for args, result in input_data_results_list:
-            self.assertEqual(round_down(*args), result)
+            self.assertEqual(floor(*args), result)
 
     def test_round_up_on_step(self):
         input_data_results_list = [
@@ -34,7 +34,7 @@ class TestRound(unittest.TestCase):
             ((5, 3.1), 6.2),
         ]
         for args, result in input_data_results_list:
-            self.assertEqual(round_up(*args), result)
+            self.assertEqual(ceil(*args), result)
 
 
 if __name__ == '__main__':

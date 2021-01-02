@@ -8,10 +8,10 @@ Float value's rounded by literal representation.
 ```python
 >>> import round_utils
 
->>> round_utils.round_up(32.333, 0.02)
+>>> round_utils.ceil(32.333, 0.02)
 32.34
 
->>> round_utils.round_down(32.333, 0.02)
+>>> round_utils.floor(32.333, 0.02)
 32.32
 ```
 
