@@ -9,7 +9,7 @@ def _get_real_int_parts(num_str, num_del_pos):
         real_num_part = re_obj[0] if re_obj else ''
     else:
         int_num_part = num_str[:num_del_pos]
-        real_num_part = num_str[num_del_pos+1:]
+        real_num_part = num_str[num_del_pos + 1:]
     return int_num_part, real_num_part
 
 
@@ -58,9 +58,11 @@ def _round_on_step(val, step, is_up=False):
     val_str = _convert_norm_float_to_float_str(val)
     if isinstance(val, int):
         val_str += '.0'
-    val_str = val_str[:len(step_str.split('.')[1] + val_str.split('.')[0]) + 1]
-
-    step_del_pos,  int_step, _, _ = _get_del_pos_and_int_num(step_str)
+    step_real_part_str = step_str.split('.')[1]
+    val_real_part_str = val_str.split('.')[1]
+    zeros_str = ''.join(list(repeat('0', len(step_real_part_str) - len(val_real_part_str))))
+    val_str = val_str[:len(val_str.split('.')[0] + step_real_part_str) + 1] + zeros_str
+    step_del_pos, int_step, _, _ = _get_del_pos_and_int_num(step_str)
     val_del_pos, int_val, int_val_str, real_val_part = _get_del_pos_and_int_num(val_str)
     int_res_str = str(_exec_round_on_step(int_val, int_step, is_up))
 

@@ -16,7 +16,8 @@ class TestRound(unittest.TestCase):
             ((-0.0009993, 0.0000020), -0.001),
             ((-5.1, 9.5), -9.5),
             ((5, 3.1), 3.1),
-
+            ((0.00005, 0.000026), 2.6e-05),
+            ((-0.00005, 0.000026), -5.2e-05)
         ]
         for args, result in input_data_results_list:
             self.assertEqual(floor(*args), result)
@@ -32,6 +33,9 @@ class TestRound(unittest.TestCase):
             ((-0.0009993, 0.0000020), -0.000998),
             ((-5.1, 9.5), 0),
             ((5, 3.1), 6.2),
+            ((0.00005, 0.000026), 5.2e-05),
+            ((-0.00005, 0.000026), -2.6e-05)
+
         ]
         for args, result in input_data_results_list:
             self.assertEqual(ceil(*args), result)
